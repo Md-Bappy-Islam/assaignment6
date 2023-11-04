@@ -1,0 +1,6 @@
+CREATE TABLE `Customers` (
+    `customer_id` BIGINT  UNSIGNED  NOT NULL AUTO_INCREMENT PRIMARY KEY,
+    `name` VARCHAR(100) NOT NULL,
+    `email` VARCHAR(100) NOT NULL,
+    `location` VARCHAR(100) NOT NULL
+);

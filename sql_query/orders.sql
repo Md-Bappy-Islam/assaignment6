@@ -1,0 +1,9 @@
+CREATE TABLE 
+`orders`
+(
+    `order_id` BIGINT(20) UNSIGNED NOT NULL AUTO_INCREMENT PRIMARY KEY,
+    `customer_id` BIGINT(20) UNSIGNED NOT NULL ,
+    `order_date`TIMESTAMP  NOT NULL  DEFAULT CURRENT_TIMESTAMP(),
+    `total_ammount` VARCHAR (50) NOT NULL ,
+    FOREIGN KEY (`customer_id`) REFERENCES `customers`(`customer_id`) ON DELETE RESTRICT ON UPDATE CASCADE
+);
