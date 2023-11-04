@@ -23,22 +23,24 @@
             <tbody>
                 <?php
                 include("database.php");
-                $sql = "SELECT a.`customer_id` ,a.`name`, a.`email`,a.`location`,b.`total_amount` from `customers` a INNER JOIN `orders` b ON a.`customer_id`=b.`customer_id`";
-                $result = $conn->query($sql);
-                while ($row = $result->fetch_array()) {
-                    $id = $row[0];
-                    $name = $row[1];
-                    $email = $row[2];
-                    $location = $row[3];
-                    $total = $row[4];
-                    echo "<tr>
+                    $sql = "SELECT a.`customer_id` ,a.`name`, a.`email`,a.`location`,COUNT(b.order_id) from `customers` a 
+                INNER JOIN `orders` b ON a.`customer_id`=b.`customer_id`
+                GROUP BY b.`customer_id`";
+                    $result = $conn->query($sql);
+                    while ($row = $result->fetch_array()) {
+                        $id = $row[0];
+                        $name = $row[1];
+                        $email = $row[2];
+                        $location = $row[3];
+                        $total = $row[4];
+                        echo "<tr>
       <th scope='row'>" . $id . "</th>
       <td>" . $name . "</td>
       <td>" . $email . "</td>
       <td>" . $location . " </td>
       <td>" . $total . " </td>
     </tr>";
-                }
+                    }
                 ?>
             </tbody>
         </table>
