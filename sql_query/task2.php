@@ -25,7 +25,7 @@
                 $sql = "SELECT a.`order_id`,b.`quantity` ,c.`name`,d.`total_amount`from `orders` a 
                 LEFT JOIN `order_items` b ON a.`order_id`=b.`order_id`
                 LEFT JOIN `products` c ON  b.`product_id`=c.`product_id`
-                LEFT JOIN `orders` d  ON d.`order_id`=a.`order_id` LIMIT 2";
+                LEFT JOIN `orders` d  ON d.`order_id`=a.`order_id`";
                 $result = $conn->query($sql);
                 while ($row = $result->fetch_array()) {
                     $order_id = $row[0];
