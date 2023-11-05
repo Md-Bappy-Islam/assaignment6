@@ -10,6 +10,8 @@
 
 <body>
     <div class="container">
+        <h1 class="text-center " style="margin: 20px 0;">Task-1</h1>
+        <hr style="margin-bottom: 80px;">
         <table class="table">
             <thead>
                 <tr>
@@ -23,28 +25,28 @@
             <tbody>
                 <?php
                 include("database.php");
-                    $sql = "SELECT a.`customer_id` ,a.`name`, a.`email`,a.`location`,COUNT(b.order_id) from `customers` a 
+                $sql = "SELECT a.`customer_id` ,a.`name`, a.`email`,a.`location`,COUNT(b.order_id) from `customers` a 
                 INNER JOIN `orders` b ON a.`customer_id`=b.`customer_id`
                 GROUP BY b.`customer_id`";
-                    $result = $conn->query($sql);
-                    while ($row = $result->fetch_array()) {
-                        $id = $row[0];
-                        $name = $row[1];
-                        $email = $row[2];
-                        $location = $row[3];
-                        $total = $row[4];
-                        echo "<tr>
+                $result = $conn->query($sql);
+                while ($row = $result->fetch_array()) {
+                    $id = $row[0];
+                    $name = $row[1];
+                    $email = $row[2];
+                    $location = $row[3];
+                    $total = $row[4];
+                    echo "<tr>
       <th scope='row'>" . $id . "</th>
       <td>" . $name . "</td>
       <td>" . $email . "</td>
       <td>" . $location . " </td>
       <td>" . $total . " </td>
     </tr>";
-                    }
+                }
                 ?>
             </tbody>
         </table>
-        <h2><a href="index.php" style="text-decoration: none;"> <--back </a></h2>
+        <h2><a href="index.php" style="text-decoration: none; padding:0 20px" class=" border "> <--back </a></h2>
     </div>
 </body>
 

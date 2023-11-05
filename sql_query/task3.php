@@ -10,11 +10,13 @@
 
 <body>
     <div class="container">
+        <h1 class="text-center " style="margin: 20px 0;">Task-3</h1>
+        <hr style="margin-bottom: 80px;">
         <table class="table">
             <thead>
                 <tr>
                     <th scope="col"> Id</th>
-                    <th scope="col">categori</th>
+                    <th scope="col">Categori</th>
                     <th scope="col">Product Name</th>
                     <th scope="col">Quantity</th>
                     <th scope="col">Unit price</th>
@@ -24,19 +26,19 @@
             <tbody>
                 <?php
                 include("database.php");
-                    $sql = " SELECT c.`category_id`,c.`name`,b.`name`,a.`quantity`,a.`unit_price`, SUM(a.`unit_price` * a.`quantity`)  as total  FROM `order_items` a
+                $sql = " SELECT c.`category_id`,c.`name`,b.`name`,a.`quantity`,a.`unit_price`, SUM(a.`unit_price` * a.`quantity`)  as total  FROM `order_items` a
                     INNER JOIN `products` b ON a.`product_id`=b.`product_id`
                     INNER JOIN `categories` c ON b.catagory_id=c.`category_id`
                     GROUP BY a.`order_id` ORDER BY total DESC";
-                    $result = $conn->query($sql);
-                    while ($row = $result->fetch_array()) {
-                        $id = $row[0];
-                        $categori = $row[1];
-                        $name = $row[2];
-                        $unit_p = $row[3];
-                        $quantity = $row[4];
-                        $price = $row[5];
-                        echo "<tr>
+                $result = $conn->query($sql);
+                while ($row = $result->fetch_array()) {
+                    $id = $row[0];
+                    $categori = $row[1];
+                    $name = $row[2];
+                    $unit_p = $row[3];
+                    $quantity = $row[4];
+                    $price = $row[5];
+                    echo "<tr>
       <th scope='row'>" . $id . "</th>
       <td>" . $categori . "</td>
       <td>" . $name . "</td>
@@ -44,11 +46,11 @@
       <td>" . $quantity . " </td>
       <td>" . $price . " </td>
     </tr>";
-                    }
+                }
                 ?>
             </tbody>
         </table>
-        <h2><a href="index.php" style="text-decoration: none;"> <--back </a></h2>
+        <h2><a href="index.php" style="text-decoration: none; padding:0 20px" class=" border "> <--back </a></h2>
     </div>
 </body>
 

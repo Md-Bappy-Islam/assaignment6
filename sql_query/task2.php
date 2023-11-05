@@ -10,6 +10,8 @@
 
 <body>
     <div class="container">
+        <h1 class="text-center " style="margin: 20px 0;">Task-2</h1>
+        <hr style="margin-bottom: 80px;">
         <table class="table">
             <thead>
                 <tr>
@@ -37,12 +39,12 @@
                     <td>" . $name . "</td>
                     <td>" . $quantity . "</td>
                     <td>" . $total_ammount . " </td>
-                    </tr>"; 
+                    </tr>";
                 }
                 ?>
             </tbody>
         </table>
-        <h2><a href="index.php" style="text-decoration: none;" ><--back</a></h2>
+        <h2><a href="index.php" style="text-decoration: none; padding:0 20px" class=" border "><--back </a></h2>
     </div>
 
 </body>
